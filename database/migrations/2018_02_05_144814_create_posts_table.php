@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->enum('post_type', ['formation', 'stage']);
             $table->string('title', 100);
             $table->text('description')->nullable();
-            $table->dateTime('started_at');
-            $table->dateTime('ended_at');
+            $table->dateTime('started_at');//->nullable(); // enlever nullable !!!!
+            $table->dateTime('ended_at');//->nullable(); // enlever nullable !!!!
             $table->decimal('price');
             $table->integer('students_max');
             $table->enum('status', ['published', 'unpublished'])->default('unpublished');

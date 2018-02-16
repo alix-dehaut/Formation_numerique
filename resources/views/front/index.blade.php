@@ -7,15 +7,15 @@
 <ul>
 	@forelse($posts as $post)
 	<li>
-		<h2><a href="{{url('post', $post->id)}}">{{$post->title}}</a></h2>
-		<div class="row justify-content-around">
+		<h2><a href="{{route('formation_stage', $post->id)}}">{{$post->title}}</a></h2>
+		<div class="row ">
 			<div class="col-md-3">
-				<img src="{{asset('images/'.$post->picture->link)}}" alt="{{$post->picture->title}}">
+				<img src="{{asset('images/'.$post->picture->link)}}" alt="{{$post->picture->title}}" style="width: 200px">
 			</div>
-			<div class="col-md-5 offset-md-4">
+			<div class="col-md-7 offset-md-4">
 				<p>Type: {{$post->post_type}}</p>
 				<p>Catégorie: {{$post->category->name}}</p>
-				<p>Début: {{$post->started_at}}</p>
+				<p>Début: {{$post->started_at_fr}}</p>
 			</div> 	
 		</div>
 	</li>

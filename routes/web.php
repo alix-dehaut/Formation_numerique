@@ -11,8 +11,22 @@
 |
 */
 
+//front
 Route::get('/', 'Frontcontroller@index')->name('home');
 
-Route::get('post/{id}', 'Frontcontroller@show')->name('show');
+Route::get('post/{id}', 'Frontcontroller@show')->name('formation_stage');
 
-Route::get('showByType/{post_type}', 'Frontcontroller@showByType')->name('showByType');
+Route::get('showByType/{post_type}', 'Frontcontroller@showByType')->name('showByType'); 
+
+Route::get('contact', 'Frontcontroller@contactForm');
+
+Route::post('sendEmail', 'Frontcontroller@sendEmail')->name('sendmail');
+
+Route::any('search', 'Frontcontroller@search')->name('search');
+
+//auth
+Auth::routes();
+
+// backoffice
+Route::resource('admin/post', 'PostController')->middleware('auth');
+

@@ -23,29 +23,33 @@
 		</div>
 
 		<!--MAIN-->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="col-md-9">
-					@yield('content')
+		<div class="container">
+
+			<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-9">
+							@yield('content')
+						</div>
+								
+						<div class="col-md-3">
+							@include('front.search')
+						</div>
+					</div>
 				</div>
-						
-				<div class="col-md-3">
-					<p>RECHERCHE</p>
+				
+				<!--FOOTER-->
+				<div class="row"> 
+					<div class="col-md-12">
+						<div class="row align-items-start">
+		    				<div class="col-md-6">
+		      					@include('partials.menuFooter')
+		    				</div>
+						</div>
+					</div>
 				</div>
 			</div>
+
 		</div>
-		
-		<!--FOOTER-->
-		<div class="row"> 
-			<div class="col-md-12">
-				<div class="row align-items-start">
-    				<div class="col-md-4">
-      					@include('partials.menu')
-    				</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	@section('scripts')
 	<script src="{{asset('js/app.js')}}"></script>

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -11,7 +11,7 @@
 	@endif
 	
 	<div class="col-12 col-md-6">
-		<form class="form-horizontal" method="POST" action="/contact">
+		<form class="form-horizontal" method="POST" action="{{route('sendmail')}}">
 			{{ csrf_field() }} 
 			<div class="form-group">
 			<label for="Name">Name: </label>
