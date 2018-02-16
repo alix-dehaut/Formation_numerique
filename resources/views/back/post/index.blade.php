@@ -3,7 +3,7 @@
 @section('content')
 
 <p><a href="{{route('post.create')}}"><button type="button" class="btn btn-primary btn-lg">Ajouter un post</button></a></p>
-<button style="margin-bottom: 10px" class="btn btn-primary delete_all" data-url="{{ url('myproductsDeleteAll') }}">Supprimer la séléction</button>
+<button style="margin: 10px" class="btn btn-primary delete_all" data-url="{{ url('postsDeleteAll') }}">Supprimer la séléction</button>
 
 {{$posts->links()}}
 @include('back.post.partials.flash')
@@ -23,7 +23,7 @@
   </thead>
   <tbody>
   	@forelse($posts as $post)
-    <tr>
+    <tr id="tr_{{$post->id}}">
         <td><input type="checkbox" class="sub_chk" data-id="{{$post->id}}"></td>
       	<td>{{$post->title}}</td>
       	<td>{{$post->post_type}}</td>
@@ -53,5 +53,7 @@
 
 @section('scripts')
     @parent
+   <script src="{{asset('js/posts_delete_all.js')}}"></script>
     <script src="{{asset('js/confirm.js')}}"></script> 
 @endsection
+

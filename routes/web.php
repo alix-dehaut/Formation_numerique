@@ -30,3 +30,4 @@ Auth::routes();
 // backoffice
 Route::resource('admin/post', 'PostController')->middleware('auth');
 
+Route::delete('postsDeleteAll', 'PostController@deleteAll')->name('postsDeleteAll');

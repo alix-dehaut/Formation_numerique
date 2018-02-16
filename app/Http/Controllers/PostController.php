@@ -155,6 +155,14 @@ class PostController extends Controller
         $post= Post::find($id);
         $post->delete();
 
-       return redirect()->route('post.index')->with('message', 'delete success');
+       return redirect()->route('post.index')->with('message', 'Post supprimé!');
+    }
+
+     public function deleteAll(Request $request)
+    {
+        $ids = $request->ids;
+        Post::whereIn('id',explode(",",$ids))->delete();
+        return response()->json(['success'=>"selection supprimée !"]);
+
     }
 }
